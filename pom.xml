@@ -36,14 +36,15 @@
 		   <scope>test</scope>	
    </dependency>
    <!--对jsp的支持-->  
+  <!--  
 	<dependency>  
      <groupId>org.apache.tomcat.embed</groupId>  
      <artifactId>tomcat-embed-jasper</artifactId>  
- </dependency> 
-	<dependency>
+ </dependency>  -->
+	<!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -70,11 +71,54 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <dependency>
+  	  		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    	<optional>true</optional>
+ 		 </dependency>
+ 		 
+ 		 <dependency>
+		  <groupId>org.quartz-scheduler</groupId>
+		  <artifactId>quartz</artifactId>
+		  <version>2.3.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-context-support</artifactId>
+		</dependency>
+		
+		    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+		<version>3.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+			<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		
+
   </dependencies>
       <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
+        <java.version>1.7</java.version>
+        <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version>
+        
     </properties>
 
   <dependencyManagement>
@@ -86,6 +130,8 @@
                 <type>pom</type> 
                 <scope>import</scope>
             </dependency>
+       
+
         </dependencies>
 </dependencyManagement>
 

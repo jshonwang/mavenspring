@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>INSPINIA | UserList</title>
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet" />
+
+<link th:href="@{/css/animate.css}" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet"/>
+<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet"/>
+
+<!-- Sweet Alert -->
+<link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet"/>
+    
+</head>
+
+<body>
+	<nav class="navbar-default navbar-static-side" role="navigation" th:include="nav :: navigation"></nav>
+	<div class="border-bottom" th:include="header :: headerTop"></div>
+	<div class="container  text-center animated fadeInDown  gray-bg">
+	<span th:text="${getUserInfoFail}"></span>
+		<div>
+			<div>
+			</div>
+				<table class="table table-striped table-hover table-bordered" >
+					
+					<tr>
+						<td>用户名</td>
+						<td>密码</td>
+						<td>真实姓名</td>
+						<td>年龄</td>
+						<td>手机号码</td>
+						<td>头像地址</td>
+						<td>更新时间</td>
+						<td>状态</td>
+						<td>添加时间</td>
+						
+					</tr>
+					<tr th:each="info,infoStat:${infoList}">
+						<td th:text="${info.userName}"></td>
+						<td th:text="${info.password}"></td>
+						<td th:text="${info.realName}"></td>
+						<td th:text="${info.age}"></td>
+						<td th:text="${info.phoneNumber}"></td>
+						<td th:text="${info.headPicture}"></td>
+						<td th:text="${info.updateDate}"></td>
+						<td th:text="${info.state}"></td>
+						<td th:text="${info.addDate}"></td>
+					</tr>
+				</table>
+			<p class="m-b-xl">
+				<small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+			</p>
+			<div class="footer" th:include="footer :: copyright"></div>
+		</div>
+	</div>
+
+	<!-- Mainly scripts -->
+	<script th:src="@{/js/jquery-2.1.1.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<!-- Sweet alert -->
+    <script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+
+    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+
+
+    <!-- Custom and plugin javascript -->
+    <script th:src="@{/js/inspinia.js}"></script>
+    <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+
+    
+
+ 
+    <!-- Sparkline demo data  -->
+    <script th:src="@{/js/demo/sparkline-demo.js}"></script>
+	<script th:inline="javascript">
+		var error = [[${error}]];
+		$(document).ready(function () {
+			if(error!=null){
+				 swal({
+		         	title : "温馨提示",
+		         	text : error
+		      	});
+			}
+		});
+
+	</script>
+</body>
+
+</html>

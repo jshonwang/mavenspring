@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication 
 @MapperScan("mavenspring.com.mapper")
-@EnableEurekaClient
+//@EnableEurekaClient
 public class firstController {
 	/**
 	 * springboot应用的启动类
@@ -16,7 +16,6 @@ public class firstController {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(firstController.class,args);
-		
 	}
 
 }

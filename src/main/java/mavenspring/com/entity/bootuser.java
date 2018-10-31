@@ -1,8 +1,6 @@
 package mavenspring.com.entity;
 
-import javax.persistence.Entity;
 
-@Entity
 public class bootuser {
 	private Integer id;
 	private String username;
