@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
+
 <head>
 
 <meta charset="utf-8" />
@@ -43,18 +44,37 @@
 						<td>添加时间</td>
 						
 					</tr>
-					<tr th:each="info,infoStat:${infoList}">
+					<tr th:each="info,infoStat:${info}">
 						<td th:text="${info.userName}"></td>
 						<td th:text="${info.password}"></td>
 						<td th:text="${info.realName}"></td>
+						
 						<td th:text="${info.age}"></td>
 						<td th:text="${info.phoneNumber}"></td>
-						<td th:text="${info.headPicture}"></td>
+						<td><img src="/img/a4.jpg"/></td>
+					<!--  	<td><img th:src="@{${info.headPicture}}"/></td>-->
 						<td th:text="${info.updateDate}"></td>
-						<td th:text="${info.state}"></td>
+						<td th:text="(${info.state}=='1')?'正常':'冻结'"></td>
 						<td th:text="${info.addDate}"></td>
 					</tr>
+					
+					
 				</table>
+				<table>
+  <tr>
+  <td><a th:href="@{/UserTypeList?pageNum=0}">首页</a></td>
+    <td th:switch="${pageNum}">
+      <p th:case="1"> <a th:href="@{/UserTypeList?pageNum=1}">上一页</a></p>
+      <p th:case="*"><a th:href="@{/UserTypeList(pageNum=${page.pageNum-1})}">上一页</a></p>
+    </td>
+     <td th:switch="${pageNum}">
+       <p th:case="${totalPages}"><a th:href="@{/UserTypeList(pageNum=${page.totalPages})}">下一页</a></p>
+       <p th:case="*"><a th:href="@{/UserTypeList(pageNum=${pagepageNum+1})}">下一页</a></p>
+     </td>
+     <td><a th:href="@{/UserTypeList(pageNum=${pagetotalPages})}">尾页</a></td>
+  </tr>
+</table>
+
 			<p class="m-b-xl">
 				<small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
 			</p>

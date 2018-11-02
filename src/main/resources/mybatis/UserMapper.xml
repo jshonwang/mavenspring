@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sa">
+	<resultMap type="mavenspring.com.entity.Admin" id="UserListMap">
+		 <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="realName" property="realName" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="phoneNumber" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="headPicture" property="headPicture" jdbcType="VARCHAR" />
+    <result column="addDate" property="addDate" jdbcType="DATE" />
+    <result column="updateDate" property="updateDate" jdbcType="DATE" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+
+	</resultMap>
+	
+	<select id="findbypage" resultMap="UserListMap">
+		select id,userName,realName,age,phoneNumber,headPicture,addDate,updateDate,state 
+		from Admin
+	</select>
+
+</mapper>
